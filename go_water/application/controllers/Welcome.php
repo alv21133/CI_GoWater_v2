@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
+error_reporting(0);
 class Welcome extends CI_Controller {
 
 	
@@ -23,7 +23,14 @@ class Welcome extends CI_Controller {
 
 	public function masuk()
 	{
-	$this->load->view('login/index');			
+		if ( $_SESSION['unix'] == true && $_SESSION['user'] == true)
+			{
+				
+				redirect(base_url().'Welcome/member');	
+			}else{
+
+				$this->load->view('login/index');
+			}		
 		
 	}
 
@@ -70,7 +77,7 @@ class Welcome extends CI_Controller {
 				redirect(base_url().'Welcome/member');
 				
 			}else{
-				$_SESSION['key']='(&*&%#$%#$@';
+				$this->session->set_flashdata('key','&*&%#$%#$@');
 				redirect(base_url().'Welcome/masuk');
 				
 			}

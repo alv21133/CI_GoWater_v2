@@ -17,7 +17,7 @@
     <link href="<?php echo base_url() ?>/assets/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body >
-    <input hidden type="text" id="val"  value="<?php echo $_SESSION['key'] ?>">
+    <input hidden type="text" id="val"  value="<?php echo $this->session->flashdata('key'); ?>">
 	 <header class="header_area animated ">
         <div class="container-fluid ">
             <div class="row align-items-center">
